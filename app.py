@@ -1,11 +1,11 @@
 from flask import Flask, jsonify, request
 import yfinance as yf
 import pandas as pd
-from flask_cors import CORS  # Importar CORS
+from flask_cors import CORS
 from datetime import datetime
 
 app = Flask(__name__)
-CORS(app)  # Habilitar CORS
+CORS(app)  # ✅ Habilitar CORS para permitir peticiones desde el frontend
 
 @app.route('/api/stock-data', methods=['GET'])
 def get_stock_data():
@@ -14,12 +14,8 @@ def get_stock_data():
         start_date = request.args.get('start')
         end_date = request.args.get('end')
 
-        # ✅ Validar formato de fechas
-        try:
-            start = datetime.strptime(start_date, '%Y-%m-%d')
-            end = datetime.strptime(end_date, '%Y-%m-%d')
-        except ValueError:
-            return jsonify({'error': 'Formato de fecha inválido, debe ser YYYY-MM-DD'}), 400
+        if not symbol or not start_date or not end_date:
+            return jsonify({'error': 'Faltan parámetros'}), 400
 
         stock = yf.Ticker(symbol)
         hist = stock.history(start=start_date, end=end_date)
@@ -36,4 +32,6 @@ def get_stock_data():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    import os
+    port = int(os.environ.get("PORT", 10000))  # ✅ Configurar el puerto dinámico para Render
+    app.run(host='0.0.0.0', port=port)
