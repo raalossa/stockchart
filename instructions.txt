@@ -1,0 +1,40 @@
+
+
+PARA ACTUALIZAR INFO RN GIT HUB:
+
+git add app.py
+git commit -m "Habilitando CORS en app.py"
+git push origin main
+
+
+
+------------------------
+
+Eliminar historial de git
+
+rm -rf .git
+
+
+-----------------------------
+
+Remove-Item -Recurse -Force .git
+
+-----------------------------------
+
+iniciar git:
+git init
+
+-------------
+
+Cargar los archivos nuevamente
+git add .
+
+
+----------------
+
+Para cargar archivos especificos:
+Ejemplos:
+
+git add index.html
+git add css/
+git add js/
