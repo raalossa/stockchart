@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Acciones</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Cabin+Sketch:wght@400;700&family=Marvel:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+NG+Modern:wght@100..400&family=Wire+One&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+
+
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Viewer</h1>
+        <div class="controls">
+            <div class="control-group">
+                <label for="stock-select">Select Stock:</label>
+                <input type="text" id="stock-select">
+
+            </div>
+            <div class="control-group">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
+            </div>
+            <div class="control-group">
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+            </div>
+        </div>
+        <div id="chart-container">
+            <canvas id="stock-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    
+    <footer>
+        <p>Created by  
+            <a href="https://www.r4o5.com" 
+            target="_blank">Rafael Osorio 
+        </a> 2025 &#169 </p>
+    </footer>
+</body>
+</html>
