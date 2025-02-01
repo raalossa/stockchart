@@ -2,8 +2,10 @@ from flask import Flask, jsonify, request
 import yfinance as yf
 from datetime import datetime
 import pandas as pd
+from flask_cors import CORS 
 
 app = Flask(__name__)
+CORS(app)  # Habilitar CORS
 
 @app.route('/')
 def index():
